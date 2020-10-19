@@ -2,15 +2,20 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
+//----routes
+const adminRoute = require('./routes/admin')
+const shopRoute = require('./routes/shop')
+
 const app = express();
-//express.urlencoded({extended: true})
+express.urlencoded({extended: true})
 
 
 
 //-----------------midlware---------------------------------
 
 //bodyparer
-app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.urlencoded());
+app.use(express.urlencoded({extended: true}))
 
 
 app.use((req,res,next)=>{
@@ -19,30 +24,13 @@ app.use((req,res,next)=>{
     next()
 })
 
-app.use('/add-prod',(requete,response,suivant)=>{
-    console.log('deuxieme middlware')
-    console.log('addprod')
-    //by default send content/type == text/html
-    response.status(200).send('<form action="/product" method="POST"><input type="text" name="title" /><button type="submit">Add</button></form>')
-})
-
-app.use('/product',(req,res)=>{
+//-------------route--------------------------//
+app.use(adminRoute);
+app.use(shopRoute);
 
 
-    console.log(req.body)
 
 
-    //redirect by express
-    res.redirect('/');
-
-})
-
-app.use('/',(requete,response,suivant)=>{
-    console.log('deuxieme middlware')
-    console.log(suivant)
-    //by default send content/type == text/html
-    response.status(200).send('<h1>hello world</h1>')
-})
 
 
 
