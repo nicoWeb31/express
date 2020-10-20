@@ -11,6 +11,8 @@ const app = express();
 express.urlencoded({extended: true})
 
 
+const routeDir = require('./utils/path')
+
 
 //-----------------midlware---------------------------------
 
