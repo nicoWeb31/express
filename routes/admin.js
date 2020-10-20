@@ -4,6 +4,8 @@ const routeDir = require('../utils/path')
 
 const router = express.Router();
 
+const products = [];
+
 router.get('/product',(requete,response,suivant)=>{
     // console.log('deuxieme middlware')
     // console.log('addprod')
@@ -16,6 +18,7 @@ router.post('/product',(req,res)=>{
 
 
     console.log(req.body)
+    products.push({title : req.body.title})
 
 
     //redirect by express
@@ -24,4 +27,5 @@ router.post('/product',(req,res)=>{
 })
 
 
-module.exports = router;
+exports.routes = router
+exports.products = products

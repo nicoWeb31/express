@@ -3,6 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path')
 
+
 //----routes
 const adminRoute = require('./routes/admin')
 const shopRoute = require('./routes/shop')
@@ -11,8 +12,15 @@ const app = express();
 express.urlencoded({extended: true})
 
 
-const routeDir = require('./utils/path')
+const routeDir = require('./utils/path');
 
+//Template engine twig
+app.set('view engine', 'twig')
+
+////Template engine twig
+app.set('view engine', 'pug')
+
+app.set('views', 'views')
 
 //-----------------midlware---------------------------------
 
@@ -31,14 +39,14 @@ app.use((req,res,next)=>{
 })
 
 //-------------route--------------------------//
-app.use('/admin',adminRoute);
+app.use('/admin',adminRoute.routes);
 app.use(shopRoute);
 
 
 //404
 app.use('/',(req,res,next)=>{
     res.status(404)
-    .sendFile(path.join(__dirname,'views','404.html'))
+    .sendFile(path.join(routeDir,'404.html'))
 })
 
 
