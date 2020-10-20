@@ -20,6 +20,9 @@ const routeDir = require('./utils/path')
 app.use(bodyParser.urlencoded());
 app.use(express.urlencoded({extended: true}))
 
+//for css
+app.use(express.static(path.join(__dirname,'public')))
+
 
 app.use((req,res,next)=>{
     console.log('je suis dans le midllware, je suis appeller a chaque requete, req ,res, et prochain middware')
