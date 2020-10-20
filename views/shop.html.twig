@@ -7,10 +7,10 @@
 
 {% block content %}
 	{% if products.length > 0  %}
+		<div class='=grid'>
 
-		{% for prod in products %}
+			{% for prod in products %}
 
-			<div class='=grid'>
 				<article class="card product-item">
 					<header class="card__header">
 
@@ -20,25 +20,25 @@
 					<div class="card__image">
 						<img src="https://picsum.photos/200/300" alt="">
 					</div>
-                    <div class="card__content">
-                        <h2 class="product__price">
-                        19,99
-                        </h2>
-                        <p class="product__description">a very ....</p>
-                    </div>
-                    <div class="card__actions">
-                        <button class="btn"> add to card</button>
-                    </div>
+					<div class="card__content">
+						<h2 class="product__price">
+							19,99
+						</h2>
+						<p class="product__description">a very ....</p>
+					</div>
+					<div class="card__actions">
+						<button class="btn">
+							add to card</button>
+					</div>
 
 				</article>
 
-			</div>
 
+			{% endfor %}
 
-		{% endfor %}
-
-    {% else %}
-        <h1>No produc found</h1>
+		</div>
+	{% else %}
+		<h1>No produc found</h1>
 	{% endif %}
 
 

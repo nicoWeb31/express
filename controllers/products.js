@@ -20,13 +20,15 @@ exports.postProduct = (req,res)=>{
 
 exports.getProduct = (requete,response,suivant)=>{
 
-    const products = Product.fetchAll();
+    Product.fetchAll((products)=>{
+        console.log(products)
+        response.status(200).
+        render('shop.html.twig',{
+            products:products,
+            pageTitle:'Shop',
+            path:'/shop'})
+    });
 
-    response.status(200).
-    render('shop.html.twig',{
-        products:products,
-        pageTitle:'Shop',
-        path:'/shop'})
 
 
 }
