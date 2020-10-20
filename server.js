@@ -25,7 +25,7 @@ app.use((req,res,next)=>{
 })
 
 //-------------route--------------------------//
-app.use(adminRoute);
+app.use('/admin',adminRoute);
 app.use(shopRoute);
 
 
