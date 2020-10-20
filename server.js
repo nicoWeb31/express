@@ -18,7 +18,7 @@ const routeDir = require('./utils/path');
 app.set('view engine', 'twig')
 
 ////Template engine twig
-app.set('view engine', 'pug')
+//app.set('view engine', 'pug')
 
 app.set('views', 'views')
 
@@ -46,15 +46,8 @@ app.use(shopRoute);
 //404
 app.use('/',(req,res,next)=>{
     res.status(404)
-    .render('404')
+    .render('404.html.twig',{pageTitle:'page not found'})
 })
-
-
-
-
-
-
-
 
 
 

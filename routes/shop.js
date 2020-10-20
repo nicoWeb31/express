@@ -17,7 +17,7 @@ router.get('/',(requete,response,suivant)=>{
     //by default send content/type == text/html
 
     //response.status(200).render('shop.html.twig',{products:adminData.products, docTitle: 'Shop'})
-    response.status(200).render('shop',{products:adminData.products, docTitle: 'Shop'})
+    response.status(200).render('shop.html.twig',{products:adminData.products, pageTitle:'Shop',path:'/shop'})
 
 
 })

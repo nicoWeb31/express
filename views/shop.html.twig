@@ -1,42 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "layout/base.html.twig" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{docTitle}}</title>
-    <link rel="stylesheet" href="/css/main.css">
+{% block title %}
+	{{pageTitle}}
+{% endblock %}
 
 
+{% block content %}
+	{% if products.length > 0  %}
 
-</head>
+		{% for prod in products %}
 
-<body>
+			<div class='=grid'>
+				<article class="card product-item">
+					<header class="card__header">
 
-    <header class="main-header">
-        <nav class="main-header__nav">
-            <ul class="main-header__item-list">
-                <li class="main-header__item "><a class="active" href="/">Shop</a></li>
-                <li class="main-header__item"><a href="/admin/product">Add-product</a></li>
+						<h1 class="product__title">{{prod.title}}</h1>
 
-            </ul>
-        </nav>
-    </header>
+					</header>
+					<div class="card__image">
+						<img src="https://picsum.photos/200/300" alt="">
+					</div>
+                    <div class="card__content">
+                        <h2 class="product__price">
+                        19,99
+                        </h2>
+                        <p class="product__description">a very ....</p>
+                    </div>
+                    <div class="card__actions">
+                        <button class="btn"> add to card</button>
+                    </div>
+
+				</article>
+
+			</div>
 
 
-    <main>
-        <h1>{{docTitle}}</h1>
-        <p>list.....</p>
-        {% for product in products %}
+		{% endfor %}
 
-<h3>{{product.title}}</h3>
-        
-            
-        {% endfor %}
-    </main>
+    {% else %}
+        <h1>No produc found</h1>
+	{% endif %}
 
-</body>
 
-</html>
-
-</html>
+{% endblock %}
