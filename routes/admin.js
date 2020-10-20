@@ -10,7 +10,7 @@ router.get('/product',(requete,response,suivant)=>{
     // console.log('deuxieme middlware')
     // console.log('addprod')
     //by default send content/type == text/html
-    response.status(200).sendFile(path.join(routeDir,'views','add-product.html'))
+    response.status(200).render('add-product',{pageTitle: 'Add pproduct'})
 })
 
 //app---->methode or  use for midllewere or all methode

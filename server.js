@@ -46,7 +46,7 @@ app.use(shopRoute);
 //404
 app.use('/',(req,res,next)=>{
     res.status(404)
-    .sendFile(path.join(routeDir,'404.html'))
+    .render('404')
 })
 
 
