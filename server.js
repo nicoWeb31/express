@@ -11,8 +11,7 @@ const shopRoute = require('./routes/shop')
 const app = express();
 express.urlencoded({extended: true})
 
-
-const routeDir = require('./utils/path');
+const exeptionController = require('./controllers/exeptionController')
 
 //Template engine twig
 app.set('view engine', 'twig')
@@ -39,15 +38,12 @@ app.use((req,res,next)=>{
 })
 
 //-------------route--------------------------//
-app.use('/admin',adminRoute.routes);
+app.use('/admin',adminRoute);
 app.use(shopRoute);
 
 
 //404
-app.use('/',(req,res,next)=>{
-    res.status(404)
-    .render('404.html.twig',{pageTitle:'page not found'})
-})
+app.use('/',exeptionController.error404)
 
 
 
