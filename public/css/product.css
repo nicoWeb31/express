@@ -46,7 +46,8 @@ main{
 }
 
 .form-control label,
-.form-control input{
+.form-control input,
+.form-control textarea{
     display: block;
     width: 100%;
 }
@@ -61,7 +62,8 @@ main{
     margin: auto;
 }
 
-.form-control input{
+.form-control input,
+.form-control textarea{
     border: 1px solid burlywood;
     border-radius: 2px;
     font: inherit;
@@ -90,9 +92,9 @@ button:hover{
     border-radius: 3px;
     cursor: pointer;
   }
-  
+
   .btn:hover,
   .btn:active {
-    background-color: #00695c;
-    color: white;
+      background-color: #00695c;
+      color: white;
   }
