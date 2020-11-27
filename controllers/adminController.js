@@ -1,12 +1,13 @@
 const Product = require("../models/product");
 
-exports.getAddProduct = (requete, response, suivant) => {
+exports.addProduct = (requete, response, suivant) => {
     response.status(200).render("admin/add-product", {
         pageTitle: "Add pproduct",
         path: "/admin/product",
     });
 };
 
+//
 exports.postProduct = (req, res) => {
     const product = new Product(req.body.title);
     product.save();
@@ -15,12 +16,13 @@ exports.postProduct = (req, res) => {
     res.redirect("/");
 };
 
-exports.getProduct = (requete, response, suivant) => {
+//
+exports.getAllProducts = (req,res,next) => {
     Product.fetchAll((products) => {
-        response.status(200).render("shop/product-list", {
+        res.status(200).render("admin/products", {
             products: products,
-            pageTitle: "product-list",
-            path: "/shop",
+            pageTitle: "All-products",
+            path: "/admin/products",
         });
     });
-};
+}
